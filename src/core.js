@@ -38,9 +38,19 @@ export function parseNotes(raw, segments) {
       if (
         !Array.isArray(n.evidence) ||
         !n.evidence.length ||
-        n.evidence.length > 12 ||
-        n.evidence.some((id) => !ids.has(id))
+        n.evidence.length > 12
       )
+        throw Error("Invalid note evidence");
+      // Gemma may wrap a reference as { id: 1 }; canonical storage stays number[].
+      const evidence = n.evidence.map((reference) =>
+        reference &&
+        typeof reference === "object" &&
+        !Array.isArray(reference) &&
+        Object.keys(reference).length === 1
+          ? reference.id
+          : reference,
+      );
+      if (evidence.some((id) => !Number.isInteger(id) || !ids.has(id)))
         throw Error("Invalid note evidence");
       const optional = (value) =>
         typeof value === "string" && value.trim()
@@ -48,7 +58,7 @@ export function parseNotes(raw, segments) {
           : null;
       return {
         text: n.text.trim(),
-        evidence: [...new Set(n.evidence)],
+        evidence: [...new Set(evidence)],
         owner: optional(n.owner),
         due: optional(n.due),
       };

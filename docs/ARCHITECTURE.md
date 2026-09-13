@@ -38,7 +38,7 @@ esbuild bundles runtime code locally. WASM/runtime companion modules are copied 
 
 ## Structured memory contract
 
-Each transcript segment has a numeric ID, text, and start/end seconds. Notes have `text`, `evidence: number[]`, `owner: string | null`, and `due: string | null`, grouped into `decisions`, `actions`, `questions`. Model JSON must pass structural and evidence-ID validation before replacing notes. Up to 20 items/category are accepted; text is bounded. Rendering uses DOM text nodes.
+Each transcript segment has a numeric ID, text, and start/end seconds. Notes have `text`, `evidence: number[]`, `owner: string | null`, and `due: string | null`, grouped into `decisions`, `actions`, `questions`. Model JSON must pass structural and evidence-ID validation before replacing notes. A single-field `{ "id": 1 }` source reference is normalized to numeric ID `1`; it still must name an existing segment. Up to 20 items/category are accepted; text is bounded. Rendering uses DOM text nodes.
 
 Gemma refreshes after three new transcript segments, on Stop, or on request. It analyzes the most recent 24 segments. Prior notes grounded in that window are replaced, allowing corrections within the window. Older notes persist, with normalized exact-text deduplication. This is bounded meeting memory, not a comprehensive contradiction-resolution system.
 

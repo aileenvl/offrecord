@@ -4,7 +4,7 @@ Tests use synthetic meeting content and isolated browser profiles, not personal 
 
 ## Automated core tests
 
-13 passing Node tests cover schema/evidence validation, unknown owners, deduplication, exports, PCM chunk boundaries, short-tail lookahead and final partial flush, queue pressure, stopping, failed model response preservation, corrected notes, and temporary sessions avoiding database writes.
+14 passing Node tests cover schema/evidence validation (including object-wrapped source IDs), unknown owners, deduplication, exports, PCM chunk boundaries, short-tail lookahead and final partial flush, queue pressure, stopping, failed model response preservation, corrected notes, and temporary sessions avoiding database writes.
 
 ## Browser product tests
 
@@ -40,3 +40,9 @@ An earlier standalone whole-WAV → one-paragraph imported transcript → Gemma 
 The production dependency audit reports zero known vulnerabilities after pinning patched Node-only transitive dependencies `sharp` and `adm-zip`. These Node-only dependencies are not part of the browser bundle. The tested browser inference packages remain unchanged. Code has no meeting upload endpoint, analytics, remote script, HTML interpolation of transcripts or model-executed tools.
 
 The recorded checks do not establish perfect transcription, reliable speaker attribution, resistance to a compromised local device, or support for every web meeting service. A live presentation should use the tested short synthetic sample and rehearse on its actual machine.
+
+## Recording-time reference-format regression
+
+During video recording, Gemma sometimes returned evidence as `[{"id": 1}]` instead of `[1]`. These references pointed to real segments but the strict parser rejected the shape. The parser now accepts a single-field object containing an integer ID and normalizes it to the existing numeric-array contract. Missing, unknown, string-valued and extra-field object references remain rejected. A regression test covers these cases. Source validation is preserved; no reference is invented or remapped to another segment.
+
+The corrected build completed a fresh offline recording with two transcript segments, two decisions, two actions, and two question entries, all with valid source IDs. [Recorded synthetic result](evidence/recording.json). The model omitted structured owner/deadline fields in this run despite mentioning names and dates in the action text; those fields remain unknown rather than being invented. The previously observed question/action categorization issue remains.

@@ -1,0 +1,96 @@
+{
+  "state": {
+    "session": {
+      "id": "760e499c-29da-48fb-af57-a97fe80463a9",
+      "createdAt": "2026-09-13T01:28:31.482Z",
+      "context": {
+        "title": "OffRecord · Local audio test meeting",
+        "domain": "127.0.0.1",
+        "heading": "A meeting.Without a meeting."
+      },
+      "mode": "live",
+      "retained": false,
+      "status": "complete",
+      "segments": [
+        {
+          "id": 1,
+          "text": "We decided to launch the Chrome extension on Friday, all meeting audio stays on this device. Luis will test Tab Audio Capture by Thursday. Maya will record the two-minute demo tomorrow.",
+          "start": 0,
+          "end": 12
+        },
+        {
+          "id": 2,
+          "text": "Can the model work offline on a smaller laptop? We still need to test that. Someone needs to verify the cached model before the presentation. Let us review the notes before we share them.",
+          "start": 12,
+          "end": 24.232
+        }
+      ],
+      "notes": {
+        "decisions": [
+          {
+            "text": "Launch the Chrome extension on Friday.",
+            "evidence": [
+              1
+            ],
+            "owner": null,
+            "due": null
+          },
+          {
+            "text": "All meeting audio stays on this device.",
+            "evidence": [
+              1
+            ],
+            "owner": null,
+            "due": null
+          }
+        ],
+        "actions": [
+          {
+            "text": "Luis will test Tab Audio Capture by Thursday.",
+            "evidence": [
+              1
+            ],
+            "owner": null,
+            "due": null
+          },
+          {
+            "text": "Maya will record the two-minute demo tomorrow.",
+            "evidence": [
+              1
+            ],
+            "owner": null,
+            "due": null
+          }
+        ],
+        "questions": [
+          {
+            "text": "Can the model work offline on a smaller laptop?",
+            "evidence": [
+              2
+            ],
+            "owner": null,
+            "due": null
+          },
+          {
+            "text": "Someone needs to verify the cached model before the presentation.",
+            "evidence": [
+              2
+            ],
+            "owner": null,
+            "due": null
+          }
+        ]
+      },
+      "warning": "",
+      "analyzedThrough": 2
+    },
+    "activity": "Session complete · temporary until you save",
+    "busy": false,
+    "recording": false,
+    "processing": false,
+    "analyzing": false,
+    "speechReady": true,
+    "notesReady": true,
+    "queued": 0
+  }
+}

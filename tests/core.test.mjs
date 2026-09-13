@@ -35,6 +35,23 @@ test("unknown owner and deadline stay unknown; duplicate updates merge", () => {
   assert.equal(notes.actions[0].due, null);
   assert.equal(mergeNotes(notes, notes).actions.length, 1);
 });
+test("model reference objects normalize only when they name an existing segment", () => {
+  const raw = (evidence) =>
+    JSON.stringify({ decisions: [{ text: "Launch Friday", evidence }] });
+  assert.deepEqual(
+    parseNotes(raw([{ id: 1 }]), segments).decisions[0].evidence,
+    [1],
+  );
+  for (const evidence of [
+    [{ id: 9 }],
+    [{ id: "1" }],
+    [{ other: 1 }],
+    [null],
+    [{ id: 1, invented: true }],
+  ]) {
+    assert.throws(() => parseNotes(raw(evidence), segments), /evidence/);
+  }
+});
 test("exports identify replay and include source transcript", () => {
   const s = createSession({ title: "Planning", domain: "demo.local" }, "demo");
   s.segments = segments;
