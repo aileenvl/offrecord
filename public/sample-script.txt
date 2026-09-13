@@ -1,0 +1,1 @@
+We decided to launch the Chrome extension on Friday. All meeting audio stays on this device. Luis will test tab audio capture by Thursday. Maya will record the two minute demo tomorrow. Can the model work offline on a smaller laptop? We still need to test that. Someone needs to verify the cached model before the presentation. Let us review the notes before we share them.

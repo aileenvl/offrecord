@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OffRecord — Your meeting, kept yours.</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="brand"><div class="wordmark"><span class="mark" aria-hidden="true">◉</span> OffRecord<span class="beta">BETA</span></div><span class="local"><span aria-hidden="true">●</span> ON DEVICE</span></header>
+<main>
+<section class="intro"><p class="eyebrow">A LITTLE LESS NOTE-TAKING.</p><h1>Your meeting.<br><em>Kept yours.</em></h1><p class="lede">Stay in the conversation. Keep the decisions.</p></section>
+<section class="session" aria-label="Current session">
+ <div class="session-top"><span id="mode" class="pill">PRIVATE BY DESIGN</span><span id="duration" class="mono">00:00</span></div>
+ <h2 id="meeting-title">Ready when you are</h2><p id="context" class="muted">Open OffRecord from the tab you want to capture.</p>
+ <div class="signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+ <p id="activity" role="status" aria-live="polite">Ready</p><p id="warning" class="warning" role="alert" hidden></p>
+ <div class="controls"><button id="capture" class="primary">Start tab capture</button><button id="stop" class="stop" hidden>Stop & save</button><button id="demo" class="secondary">Try sample meeting <span aria-hidden="true">↗</span></button></div>
+ <p class="fine">Tab audio only · your microphone is not captured.<br>Let everyone know before you start taking notes.</p>
+</section>
+<nav class="tabs" aria-label="Meeting view"><button id="notes-tab" aria-pressed="true">Meeting notes</button><button id="transcript-tab" aria-pressed="false">Transcript <span id="segment-count">0</span></button></nav>
+<div id="notes-view">
+ <div class="section-label"><span>THE THINGS THAT MATTER</span><button id="analyze" class="text-button">Refresh with Gemma</button></div>
+ <section class="note-section"><h2><span class="category-icon">↗</span> Decisions <span id="decisions-count" class="count">0</span></h2><div id="decisions"></div></section>
+ <section class="note-section"><h2><span class="category-icon">□</span> Action Items <span id="actions-count" class="count">0</span></h2><div id="actions"></div></section>
+ <section class="note-section"><h2><span class="category-icon">?</span> Open Questions <span id="questions-count" class="count">0</span></h2><div id="questions"></div></section>
+ <p class="fine review">A useful first draft. Follow a source to check what was said.</p>
+</div>
+<div id="transcript-view" hidden><p class="fine">Time marks are audio chunk boundaries, not word-level alignment. Imported text has no timing.</p><div id="transcript"></div></div>
+<div class="export-bar"><span id="saved" class="muted">Stored only in this browser</span><button id="export" class="secondary small">Export .md</button><button id="json" class="text-button">JSON</button></div>
+<details id="setup"><summary>Local models & privacy <span id="model-indicator">Not loaded</span></summary><div class="details-body"><p>Whisper recognizes speech on your CPU. Gemma 4 turns the transcript into notes on your GPU.</p><p class="fine">First setup downloads model files from Hugging Face (several GB). Audio and transcript are never uploaded. Allow time for the download before your demo.</p><label class="check"><input id="download" type="checkbox" checked> Allow model downloads during setup</label><button id="prepare" class="secondary">Prepare local models</button><p id="readiness" class="fine">Speech: not loaded · Gemma: not loaded</p><p class="fine">After setup, uncheck downloads to test cached startup offline. Keep the extension installed; browser storage cleanup can remove the cache.</p></div></details>
+<details><summary>Saved sessions <span id="history-count">0</span></summary><div class="details-body"><label for="history">Open a local session</label><select id="history"><option value="">No saved meetings</option></select><button id="delete" class="danger text-button">Delete selected session</button></div></details>
+<details><summary>Bring your own transcript</summary><div class="details-body"><label for="import-text">Paste text to analyze locally (30,000 characters max)</label><textarea id="import-text" rows="5" maxlength="30000" placeholder="One statement per line…"></textarea><button id="import" class="secondary">Save transcript</button><p class="fine">Use “Refresh with Gemma” after preparing the model. Long meetings are analyzed in a rolling window of 24 segments.</p></div></details>
+<footer><span class="mark" aria-hidden="true">◉</span> No bot in the call. No cloud AI. Just you.</footer>
+</main><script type="module" src="panel.js"></script></body></html>
