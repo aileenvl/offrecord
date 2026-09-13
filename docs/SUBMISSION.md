@@ -1,5 +1,7 @@
 # Final submission copy
 
+Public repository: https://github.com/aileenvl/offrecord
+
 ## Title
 
 OffRecord
@@ -52,9 +54,10 @@ Built for Agents, Everywhere. #WebAI #Gemma #Hackathon
 - [ ] Read the exact live-model/capture results in `docs/VERIFICATION.md`.
 - [ ] Rehearse actual capture and cached/offline model startup on the presentation machine.
 - [ ] Record the two-minute video; label replay and any time cuts honestly.
-- [ ] Create the public repository, push source, and verify clean-clone instructions.
+- [x] Create the public repository and push source.
+- [ ] Verify clean-clone instructions on the presentation machine.
 - [ ] Add the real repository and video URLs to the hackathon portal.
 - [ ] Confirm current portal fields, eligibility and any sponsor requirements.
 - [ ] Submit before the organizer's deadline and save confirmation.
 
-Confirm the organizer's current deadline in the submission portal. This package does not claim a portal submission, public repository publication or recorded video.
+Confirm the organizer's current deadline in the submission portal. This package does not claim a portal submission or recorded video.
