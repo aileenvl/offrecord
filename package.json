@@ -1,1 +1,30 @@
-{"name":"offrecord","version":"0.1.0","private":true,"type":"module","description":"Private browser-local meeting notes","scripts":{"build":"node scripts/build.mjs","dev":"node scripts/serve.mjs","test":"node --test tests/*.test.mjs","test:e2e":"playwright test","check":"npm test && npm run build && npm run test:e2e"},"dependencies":{"@huggingface/transformers":"4.2.0"},"devDependencies":{"@playwright/test":"1.63.0","esbuild":"0.28.2"},"engines":{"node":">=20.19"}}
+{
+  "name": "offrecord",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Private browser-local meeting notes",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "npm test && npm run build && npm run test:e2e",
+    "format": "prettier --write src scripts tests public *.js *.json"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "esbuild": "0.28.2",
+    "prettier": "3.9.6"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "overrides": {
+    "adm-zip": "0.6.1",
+    "sharp": "0.35.4"
+  }
+}

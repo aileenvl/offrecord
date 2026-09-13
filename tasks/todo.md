@@ -1,7 +1,11 @@
 # Work
 - [x] Verify Gemma 4 and Chrome APIs; write scope.
-- [ ] Core and storage tests.
-- [ ] Local inference and audio capture.
-- [ ] Panel and offline fixture replay.
-- [ ] Browser happy path and privacy checks.
-- [ ] Submission and source archives.
+- [x] Core and lifecycle tests.
+- [x] Local inference and audio capture.
+- [x] Panel and offline fixture replay.
+- [x] Temporary sessions and explicit notes/transcript retention after user privacy feedback.
+- [x] Browser happy path, persistence, export, deletion and privacy checks.
+- [x] Real Gemma execution and cached offline Whisper recognition.
+- [x] Final capture-to-notes evidence recorded.
+- [x] Submission copy and documentation.
+- [x] Final archives.

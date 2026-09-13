@@ -11,7 +11,7 @@ User-authorized scope: self-contained Chrome MV3 extension; no server, account, 
 | panel | Session controls, transcript, notes, sample replay | memory, capture |
 
 ## Acceptance
-Start capture only after explicit user action. Audio remains audible. Stop releases tracks and drains accepted chunks; errors visible; no silent buffer loss. Closing panel does not stop offscreen capture. Store each transcript update and notes in IndexedDB; reopening recovers it. Raw audio is transient. Notes cite transcript segments; unknown owners/deadlines remain unknown. Downloadable Markdown/JSON. Explicit deletion. Demo is labeled fixture replay, no claim of AI execution. Inference can be prewarmed and restricted to cache for offline use.
+Start capture only after explicit user action. Audio remains audible. Stop releases tracks and drains accepted chunks; errors visible; no silent buffer loss. Closing panel does not stop offscreen capture. User privacy clarification: meeting content is temporary by default. Store notes in IndexedDB only after explicit Save; full transcript retention/export is a separate unchecked choice. Reopening recovers explicitly saved copies. Raw audio is transient. Notes cite transcript segments; unknown owners/deadlines remain unknown. Downloadable Markdown/JSON. Explicit deletion. Demo is labeled fixture replay, no claim of AI execution. Inference can be prewarmed and restricted to cache for offline use.
 
 ## Structure and commands
 src/: extension and pure core; public/: bundled pages; tests/: Node unit and Playwright browser integration; docs/: architecture/privacy/demo/submission; tasks/: execution record.

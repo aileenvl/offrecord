@@ -1,11 +1,37 @@
 {
-  "manifest_version":3,"name":"OffRecord — Private meeting notes","version":"0.1.0",
-  "description":"On-device tab audio transcription and Gemma 4 meeting notes. No meeting bot. No cloud AI.",
-  "minimum_chrome_version":"116",
-  "permissions":["activeTab","tabCapture","sidePanel","offscreen","scripting","unlimitedStorage"],
-  "host_permissions":["https://huggingface.co/*","https://*.hf.co/*"],
-  "action":{"default_title":"Open OffRecord"},
-  "background":{"service_worker":"background.js","type":"module"},
-  "side_panel":{"default_path":"sidepanel.html"},
-  "content_security_policy":{"extension_pages":"default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://huggingface.co https://*.hf.co; img-src 'self' data:; style-src 'self'; object-src 'none'; base-uri 'none'"}
+  "manifest_version": 3,
+  "name": "OffRecord \u2014 Private meeting notes",
+  "version": "0.1.0",
+  "description": "On-device tab audio transcription and Gemma 4 meeting notes. No meeting bot. No cloud AI.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "activeTab",
+    "tabCapture",
+    "sidePanel",
+    "offscreen",
+    "scripting",
+    "unlimitedStorage"
+  ],
+  "host_permissions": ["https://huggingface.co/*", "https://*.hf.co/*"],
+  "action": {
+    "default_title": "Open OffRecord"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://huggingface.co https://*.hf.co; img-src 'self' data:; style-src 'self'; object-src 'none'; base-uri 'none'"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+O"
+      },
+      "description": "Open OffRecord for this tab"
+    }
+  }
 }
